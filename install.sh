@@ -266,6 +266,7 @@ chmod +x $folder/root/xfce4-themes-config.sh
 echo "Você escolheu a interface Gnome"
 echo "Configurando a instalação do servidor vnc para o Gnome"
 wget --tries=20 $extralink/gnome/gnome-config.sh -O $folder/root/ui-config.sh
+;;
 esac
 
 clear
