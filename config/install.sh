@@ -16,7 +16,7 @@ sudo apt-get install sudo wget gpg curl -y
 sudo apt-get install nano inetutils-tools dialog -y
 sudo apt-get install exo-utils tigervnc-standalone-server tigervnc-common tigervnc-tools dbus-x11 --no-install-recommends -y
 sudo apt-get install software-properties-common -y
-sudo apt-get install nautilus -y
+sudo apt-get install nautilus nano getit -y
 sudo apt-get clean
 
 
