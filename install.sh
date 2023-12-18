@@ -238,7 +238,8 @@ MENU="Escolha algumas das seguintes opções: \n \nChoose any of the following o
 export PORT=1
 
 OPTIONS=(1 "Ubuntu LXDE"
-	 2 "Ubuntu XFCE")
+	 2 "Ubuntu XFCE"
+  	 3 "Ubuntu Gnome")
 
 CHOICE=$(dialog --clear \
                 --title "$TITLE" \
@@ -261,6 +262,10 @@ wget --tries=20 $extralink/xfce/xfce-config.sh -O $folder/root/ui-config.sh
 wget --tries=20 $extralink/xfce/xfce4-panel.tar.bz2 $folder/root/xfce4-panel.tar.bz2
 chmod +x $folder/root/xfce4-themes-config.sh
 ;;
+3)
+echo "Você escolheu a interface Gnome"
+echo "Configurando a instalação do servidor vnc para o Gnome"
+wget --tries=20 $extralink/gnome/gnome-config.sh -O $folder/root/ui-config.sh
 esac
 
 clear
