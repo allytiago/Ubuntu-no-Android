@@ -1,6 +1,6 @@
 #!/bin/bash
 
-extralink="https://raw.githubusercontent.com/allytiago/Ubuntu-no-Android/main/config"
+extralink="https://raw.githubusercontent.com/allytiago/Ubuntu-no-Android/beta-gnome/config"
 
 #Get the necessary components
 sudo apt-get update
@@ -9,12 +9,42 @@ sudo apt-get install yaru-theme-gnome-shell yaru-theme-icon yaru-theme-gtk
 
 mkdir -p ~/.vnc
 
-echo '#!/bin/bash
-export XDG_CURRENT_DESKTOP="GNOME"
-service dbus start
-gnome-shell --x11' > ~/.vnc/xstartup
+#echo '#!/bin/bash
+#export XDG_CURRENT_DESKTOP="GNOME"
+#service dbus start
+#gnome-shell --x11' > ~/.vnc/xstartup
 
 chmod +x ~/.vnc/xstartup
+
+
+## Seletor de idiomas
+export USER=$(whoami)
+HEIGHT=0
+WIDTH=0
+CHOICE_HEIGHT=5
+TITLE="Select"
+MENU="Escolha algumas das seguintes opções: \n \nChoose any of the following options: "
+export PORT=1
+
+OPTIONS=(1 "Português (brasileiro)")
+
+CHOICE=$(dialog --clear \
+                --title "$TITLE" \
+                --menu "$MENU" \
+                $HEIGHT $WIDTH $CHOICE_HEIGHT \
+                "${OPTIONS[@]}" \
+                2>&1 >/dev/tty)
+
+clear
+case $CHOICE in
+1)
+wget $extralink/pt_br/config.sh -O locale-config.sh
+wget $extralink/pt_br/tigervnc/gnome/locale.sh
+bash locale.sh
+bash locale-config.sh
+;;
+esac
+
 
 echo "export DISPLAY=":1"" >> /etc/profile
 source /etc/profile
