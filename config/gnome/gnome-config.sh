@@ -5,7 +5,7 @@ extralink="https://raw.githubusercontent.com/allytiago/Ubuntu-no-Android/beta-gn
 #Get the necessary components
 sudo apt-get update
 sudo apt-get install gnome-shell gnome-terminal gnome-tweaks gnome-shell-extension-ubuntu-dock gnome-shell-extensions --no-install-recommends -y
-sudo apt-get install yaru-theme-gnome-shell yaru-theme-icon yaru-theme-gtk -y
+#sudo apt-get install yaru-theme-gnome-shell yaru-theme-icon yaru-theme-gtk -y
 
 mkdir -p ~/.vnc
 
