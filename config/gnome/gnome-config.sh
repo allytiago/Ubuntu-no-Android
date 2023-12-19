@@ -54,4 +54,4 @@ vncpasswd
 
 #gsettings set org.gnome.shell.extensions.dash-to-dock dock-position LEFT
 #gsettings set org.gnome.shell.extensions.dash-to-dock extend-height true
-#echo "export PULSE_SERVER=127.0.0.1" >> ~/.bashrc ; bash
+echo "export PULSE_SERVER=127.0.0.1" >> ~/.bashrc ; bash
