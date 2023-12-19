@@ -23,7 +23,7 @@ wget --tries=20 "$extralink/pt_br/tigervnc/vnc" -P /usr/local/bin > /dev/null
 wget --tries=20 "$extralink/pt_br/tigervnc/vncpasswd" -P /usr/local/bin > /dev/null
 wget --tries=20 "$extralink/pt_br/tigervnc/stopvnc" -P /usr/local/bin > /dev/null
 wget --tries=20 "$extralink/pt_br/tigervnc/gnome/startvnc" -P /usr/local/bin > /dev/null
-wget --tries=20 "$extralink/pt_br/tigervnc/gnome/startvncserver" -P /usr/local/bin > /dev/null
+#wget --tries=20 "$extralink/pt_br/tigervnc/gnome/startvncserver" -P /usr/local/bin > /dev/null
 
 
 chmod +x /usr/local/bin/vnc
