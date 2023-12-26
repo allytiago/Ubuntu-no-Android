@@ -4,7 +4,10 @@ extralink="https://raw.githubusercontent.com/allytiago/Ubuntu-no-Android/beta-gn
 
 #Get the necessary components
 sudo apt-get update
-sudo apt-get install gnome-shell gnome-terminal gnome-tweaks gnome-shell-extension-ubuntu-dock gnome-shell-extensions --no-install-recommends -y
+sudo apt-get install gnome-shell -y
+sudo apt-get install gnome-terminal gnome-tweaks -y
+sudo apt-get gnome-shell-extension-ubuntu-dock gnome-shell-extensions -y
+
 #sudo apt-get install yaru-theme-gnome-shell yaru-theme-icon yaru-theme-gtk -y
 
 mkdir -p ~/.vnc
@@ -12,12 +15,11 @@ mkdir -p ~/.vnc
 echo '#!/bin/bash
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 export PULSE_SERVER=127.0.0.1
-#LANG=pt_BR.UTF-8
-#export LANG
+LANG=pt_BR.UTF-8
+export LANG
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 echo $$ > /tmp/xsession.pid
-#dbus-launch --exit-with-session startlxde
 export XDG_CURRENT_DESKTOP="GNOME"
 service dbus start
 gnome-shell --x11
