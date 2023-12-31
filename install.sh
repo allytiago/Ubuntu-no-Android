@@ -210,8 +210,7 @@ command+=" HOME=/root"
 command+=" PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games"
 command+=" TERM=\$TERM"
 command+=" LANG=C.UTF-8"
-command+=" /bin/bash --login"
-command+=" -b /data/data/com.termux/files/home/ubuntu22-fs/usr/local/bin/startvncserver"
+
 com="\$@"
 if [ -z "\$1" ];then
     exec \$command
@@ -256,6 +255,7 @@ case $CHOICE in
 echo "Você escolheu a interface LXDE"
 echo "Configurando a instalação do servidor vnc para o LXDE"
 wget --tries=20 $extralink/lxde/lxde-config.sh -O $folder/root/ui-config.sh
+sed -i '/command\+=" \/bin\/bash --login"/a command\+=" -b \/data\/data\/com.termux\/files\/home\/ubuntu22-fs\/usr\/local\/bin\/startvncserver"' seu_script.sh
 ;;
 2)
 echo "Você escolheu a interface XFCE"
@@ -268,6 +268,8 @@ chmod +x $folder/root/xfce4-themes-config.sh
 echo "Você escolheu a interface Gnome"
 echo "Configurando a instalação do servidor vnc para o Gnome"
 wget --tries=20 $extralink/gnome/gnome-config.sh -O $folder/root/ui-config.sh
+#sed -i '\|command+=" /bin/bash --login"|a command+=" -b /data/data/com.termux/files/home/ubuntu22-fs/usr/local/bin/startvncserver"|' ./start-ubuntu.sh
+#command+=" -b /data/data/com.termux/files/home/ubuntu22-fs/usr/local/bin/startvncserver"
 ;;
 4)
 echo "Será feita a instalação sem interface gráfica"
@@ -275,13 +277,11 @@ wget --tries=20 "$extralink/null-option/tigervnc/vnc" -P /usr/local/bin > /dev/n
 wget --tries=20 "$extralink/null-option/tigervnc/vncpasswd" -P /usr/local/bin > /dev/null
 wget --tries=20 "$extralink/null-option/tigervnc/stopvnc" -P /usr/local/bin > /dev/null
 wget --tries=20 "$extralink/null-option/tigervnc/startvnc" -P /usr/local/bin > /dev/null
-wget --tries=20 "$extralink/null-option/tigervnc/startvncserver" -P /usr/local/bin > /dev/null
 
 chmod +x ubuntu22-fs/usr/local/bin/vnc
 chmod +x ubuntu22-fs/usr/local/bin/vncpasswd
 chmod +x ubuntu22-fs/usr/local/bin/stopvnc
 chmod +x ubuntu22-fs/usr/local/bin/startvnc
-chmod +x ubuntu22-fs/usr/local/bin/startvncserver
 ;;
 esac
 
