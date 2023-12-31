@@ -271,6 +271,17 @@ wget --tries=20 $extralink/gnome/gnome-config.sh -O $folder/root/ui-config.sh
 ;;
 4)
 echo "Será feita a instalação sem interface gráfica"
+wget --tries=20 "$extralink/null/tigervnc/vnc" -P /usr/local/bin > /dev/null
+wget --tries=20 "$extralink/null/tigervnc/vncpasswd" -P /usr/local/bin > /dev/null
+wget --tries=20 "$extralink/null/tigervnc/stopvnc" -P /usr/local/bin > /dev/null
+wget --tries=20 "$extralink/null/tigervnc/startvnc" -P /usr/local/bin > /dev/null
+wget --tries=20 "$extralink/null/tigervnc/startvncserver" -P /usr/local/bin > /dev/null
+
+chmod +x ubuntu22-fs/usr/local/bin/vnc
+chmod +x ubuntu22-fs/usr/local/bin/vncpasswd
+chmod +x ubuntu22-fs/usr/local/bin/stopvnc
+chmod +x ubuntu22-fs/usr/local/bin/startvnc
+chmod +x ubuntu22-fs/usr/local/bin/startvncserver
 ;;
 esac
 
